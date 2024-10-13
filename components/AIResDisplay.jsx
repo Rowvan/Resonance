@@ -23,10 +23,10 @@ const AIResDisplay = ({ type, statsID }) => {
             try {
                 if (type === "today") {
                     data = await getDailyRes(statsID);
-                    console.log("Today's output: ", data);
+                    // console.log("Today's output: ", data);
                 } else if (type === "total") {
                     data = await getTotalRes(statsID);
-                    console.log("Total output: ", data);
+                    // console.log("Total output: ", data);
                 } else {
                     throw new Error("Invalid type. Need 'today' or 'total'.");
                 }

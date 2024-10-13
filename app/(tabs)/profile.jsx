@@ -12,6 +12,8 @@ import DataDisplay from '../../components/DataDisplay'
 
 import AIResDisplay from '../../components/AIResDisplay'
 
+import { router } from 'expo-router'
+
 import { getDailyRes } from '../../lib/openAI'
 
 
@@ -23,10 +25,10 @@ const Profile = () => {
   
   const logout = async () => {
     await signOut();
+    
+    router.replace('/index');
     setUser(null);
     setIsLoggedIn(false);
-
-    router.replace('/index');
   }
 
   return (

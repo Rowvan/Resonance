@@ -15,14 +15,17 @@ const SimpleUser = ({ userID, showStats }) => {
     useEffect(() => {
       const fetchData = async () => {
         try {
+            //console.log("getting user: ", userID)
           const fetchedUser = await getUser(userID);
           setUser(fetchedUser);
         
           if (showStats) {
+            //console.log("getting user stats: ", fetchedUser.stats)
             const fetchedStats = await getStats(fetchedUser.stats);
             setStats(fetchedStats);
 
-            const fetchedArtist = await getArtist(fetchedStats.top_artist_today);
+            //console.log("getting top artist: ", fetchedStats.top_artists_today[0])
+            const fetchedArtist = await getArtist(fetchedStats.top_artists_today[0]);
             setTopArtist(fetchedArtist);
           }
         } catch (error) {
